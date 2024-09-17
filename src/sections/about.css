@@ -1,0 +1,43 @@
+.section:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section:nth-child(2) h1 {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: "Lexend";
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.section:nth-child(2) p {
+    width: 80vw;
+    color: #fff;
+    text-align: center;
+    font-family: "Kite One";
+    font-size: 2.18vw;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 4.62px;
+}
+
+@media (max-width: 600px) {
+    .section:nth-child(2) {
+        padding: 5vh 10vw;
+        width: 80vw;
+        height: 90vh;
+        justify-content: center;
+    }
+
+    .section:nth-child(2) p {
+        font-size: calc(3vw + 6px);
+    }
+
+    .section:nth-child(2) h1 {
+        font-size: 39px;
+    }
+}

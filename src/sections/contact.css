@@ -1,0 +1,106 @@
+.section:nth-child(4) {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section:nth-child(4) h1 {
+    color: white;
+    font-family: "Lexend";
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.sclmedia {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    font-family: "Lexend";
+    font-size: 2.5vw;
+    width: 85vw;
+    justify-content: space-between;
+}
+
+.sclapp {
+    margin: 1vw;
+    display: flex;
+    align-items: center;
+    width: 26vw;
+    cursor: pointer;
+}
+
+.sclapp p {
+    margin: 0;
+    margin-left: 1.25vw;
+    max-width: 20vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sclapp svg {
+    font-size: 2.3vw;
+}
+
+.sclapp > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.crclwht {
+    width: 1.8vw;
+    height: 2vw;
+    border-radius: 50%;
+    position: absolute;
+    z-index: -1;
+}
+
+.msgtoclnt {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        #999 25%,
+        rgba(255, 255, 255, 0.75) 50%,
+        #999 75%,
+        rgba(255, 255, 255, 0.8) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.7vw;
+    font-family: "Lexend";
+    width: 58vw;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .section:nth-child(4) {
+        padding: 5vh 0;
+        height: 90svh;
+    }
+    .section:nth-child(4) h1 {
+        font-size: 34px;
+    }
+    .sclapp {
+        width: 84vw;
+    }
+    .sclmedia {
+        font-size: 27px;
+    }
+
+    .sclapp p {
+        width: max-content;
+        max-width: fit-content;
+        margin-left: 4vw;
+    }
+
+    .crclwht {
+        width: 17px;
+        height: 22px;
+    }
+    .sclapp svg {
+        font-size: 23px;
+    }
+    .sclapp > div {
+    }
+}

@@ -1,0 +1,353 @@
+.section:nth-child(3) {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section:nth-child(3) > h1 {
+    color: white;
+    font-family: "Lexend";
+    font-size: 5vw;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.prjcts {
+    width: 93.3333333333333vw;
+    display: flex;
+    align-items: center;
+}
+
+.prjct {
+    width: 20vw;
+    height: fit-content;
+    background: white;
+    border-radius: 0.5vw;
+    overflow: hidden;
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    font-family: "Lexend";
+    transition: 250ms;
+    margin: 0 1.66666666vw;
+}
+
+.prjct:hover {
+    box-shadow: 0 4px 8px 0.3vw #ffffff5e;
+}
+
+.prjcts svg {
+    color: rgba(255, 255, 255, 0.653);
+    font-size: 2vw;
+    cursor: pointer;
+    position: absolute;
+}
+
+#lft {
+    left: 1vw;
+}
+
+#rght {
+    right: 1vw;
+}
+
+.prjct img {
+    width: 20vw;
+    height: 11.25vw;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.txtprj {
+    margin: 1.5vh 0.75vw;
+    width: 18.5vw;
+    height: auto;
+    font-size: 1.5vw;
+    overflow: auto;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    display: inline-block;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.trns {
+    font-size: 1.5vw;
+    margin: 0;
+}
+
+.msgtoclnt {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.8) 0%,
+        #999 25%,
+        rgba(255, 255, 255, 0.75) 50%,
+        #999 75%,
+        rgba(255, 255, 255, 0.8) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2vw;
+    font-family: "Lexend";
+    width: 58vw;
+    text-align: center;
+    margin-bottom: 10vh;
+}
+
+.cntrprj {
+    position: fixed;
+    height: 90vh;
+    top: 5vh;
+    width: 35vw;
+    transition: 500ms;
+    background-color: #d9d9d9;
+    border-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 0px 17px 12px rgba(119, 119, 119, 0.25);
+    overflow: hidden;
+    animation-name: open;
+    animation-duration: 500ms;
+}
+
+.imgwrpr {
+    width: 100%;
+    height: 19vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#imgtoleft {
+    position: absolute;
+    left: 2vw;
+    font-size: 1.5vw;
+    color: #c1c1c1c4;
+    cursor: pointer;
+}
+
+#imgtoright {
+    position: absolute;
+    right: 2vw;
+    font-size: 1.5vw;
+    color: #c1c1c1c4;
+    cursor: pointer;
+}
+
+.imgwrpr img {
+    width: 35vw;
+    height: 19vw;
+    background-size: cover;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.slider {
+    display: flex;
+    left: 0;
+    z-index: -1;
+    position: absolute;
+    transition: 500ms;
+}
+
+@keyframes open {
+    from {
+        transform: translateY(110%);
+    }
+    to {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes openleft {
+    from {
+        transform: translate(-110%, -50%);
+    }
+    to {
+        transform: translate(0%, -50%);
+    }
+}
+
+@keyframes blur {
+    from {
+        backdrop-filter: blur(0px);
+    }
+    to {
+        backdrop-filter: blur(2px);
+    }
+}
+
+.tls {
+    display: flex;
+}
+.tl {
+    width: auto;
+    height: auto;
+    font-family: "Lexend";
+    color: white;
+    padding: 1vh 1vw;
+    border-radius: 0.25vw;
+    margin: 0 0.3vw;
+    cursor: pointer;
+}
+.tls {
+    margin-top: 1vh;
+    margin-left: 0.5vw;
+}
+.cntrprj h1 {
+    font-size: 1vw;
+}
+
+.cntrprj h1 {
+    font-size: 2vw;
+    color: black;
+    font-family: Lexend;
+    width: 25vw;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+}
+
+.tprj p {
+    font-family: "Lexend";
+    letter-spacing: 4px;
+    margin: 0 1vw;
+    color: #000000b0;
+}
+
+.goytb {
+    display: flex;
+    width: 33vw;
+    margin: 1vw;
+    background-color: white;
+    border-radius: 0.25vw;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Lexend";
+    padding: 2vh 0;
+    transition: 300ms;
+}
+
+.goytb:hover {
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.5);
+}
+
+.goytb p {
+    margin: 0;
+    font-size: 1.25vw;
+    margin-left: 1vw;
+    font-weight: 500;
+    color: #000000ba;
+}
+.goytb svg {
+    color: red;
+    font-size: 1.65vw;
+}
+
+.cntrlr {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(2px);
+    top: 0;
+    animation-name: blur;
+    animation-duration: 1.25s;
+}
+
+@media (max-width: 1200px) {
+    .section:nth-child(3) {
+        height: fit-content;
+    }
+
+    .prjcts {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .prjct {
+        width: 55vw;
+        height: fit-content;
+        margin: 2vh 0;
+        border-radius: 4px;
+    }
+
+    .prjct img {
+        width: 55vw;
+        height: 30.9375vw;
+    }
+
+    .txtprj {
+        font-size: 20px;
+        width: 50vw;
+        margin: 1vh 2vw;
+    }
+
+    .cntrprj {
+        width: 85vw;
+        border-radius: 5px;
+        height: fit-content;
+        top: 50%;
+        transform: translateY(-50%);
+        animation-name: openleft;
+    }
+    .imgwrpr img {
+        width: 85vw;
+        height: 47.8125vw;
+    }
+    .tl {
+        font-size: 12px;
+        padding: 6px;
+        border-radius: 3px;
+        margin: 0 1vw;
+    }
+    .cntrprj h1 {
+        font-size: 28px;
+        width: 60vw;
+        margin-left: 3vw;
+    }
+    .tls {
+        margin-left: 2vw;
+    }
+    .tprj p {
+        margin-left: 3vw;
+        margin-bottom: 4vh;
+    }
+    .goytb {
+        width: 79vw;
+        margin: 3vw;
+        border-radius: 3px;
+    }
+
+    #imgtoright {
+        font-size: 23px;
+    }
+
+    #imgtoleft {
+        font-size: 23px;
+    }
+
+    .imgwrpr {
+        height: 47.8125vw;
+    }
+
+    .goytb p {
+        font-size: 15px;
+    }
+
+    .goytb svg {
+        font-size: 19px;
+        margin-right: 2vw;
+    }
+
+    .section:nth-child(3) h1 {
+        font-size: 39px;
+    }
+
+    .msgtoclnt {
+        font-size: 24px;
+        width: 80vw;
+    }
+}
