@@ -17,7 +17,6 @@ const geistMono = localFont({
 export const metadata: Metadata = {
     title: "Mohamed Aada",
     creator: "Mohamed Aada",
-    icons: "../../public/favicon.ico",
 };
 
 export default function RootLayout({

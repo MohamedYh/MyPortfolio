@@ -85,6 +85,9 @@ li {
     padding: 2vh 1.5vw;
     cursor: pointer;
     transition: 250ms;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .scrlbtn:hover {
@@ -142,11 +145,11 @@ li {
         flex-direction: column-reverse;
         justify-content: center;
         width: 100vw;
-        height: calc(90vh - 80px);
+        height: calc(100% - 80px);
     }
 
     .txtcntr {
-        width: 100%;
+        width: 90vw;
         margin-left: 10vw;
         margin-top: 10vh;
     }
