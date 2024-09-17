@@ -73,6 +73,14 @@
     text-align: center;
 }
 
+#ytbcs {
+    height: 1vw;
+}
+
+#lndes {
+    height: 1.8vw;
+}
+
 @media (max-width: 600px) {
     .section:nth-child(4) {
         padding: 5vh 0;
