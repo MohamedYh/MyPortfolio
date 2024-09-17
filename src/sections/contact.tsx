@@ -45,7 +45,7 @@ function Contact() {
                     <svg
                         stroke="currentColor"
                         fill="currentColor"
-                        stroke-width="0"
+                        strokeWidth="0"
                         viewBox="0 0 496 512"
                         height="1em"
                         width="1em"
@@ -124,7 +124,11 @@ function Contact() {
                         <div
                             style={{
                                 height:
-                                    typeof window !== "undefined" ? window.innerWidth > 600 ? "1vw" : "10px" : "",
+                                    typeof window !== "undefined"
+                                        ? window.innerWidth > 600
+                                            ? "1vw"
+                                            : "10px"
+                                        : "",
                                 background: "white",
                             }}
                             className="crclwht"
@@ -138,7 +142,11 @@ function Contact() {
                         <div
                             style={{
                                 height:
-                                    typeof window !== "undefined" ? window.innerWidth > 600 ? "1.8vw" : "16px" : "",
+                                    typeof window !== "undefined"
+                                        ? window.innerWidth > 600
+                                            ? "1.8vw"
+                                            : "16px"
+                                        : "",
                                 background: "white",
                                 borderRadius: "0",
                             }}

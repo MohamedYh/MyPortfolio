@@ -1,6 +1,6 @@
 import { Project } from "./sections/projects";
 
-const base = "/projects_images";
+const base = "./projects_images";
 
 export const projectsData: Project[] = [
     {

@@ -4,6 +4,7 @@ import "./hero.css";
 import Image from "next/image";
 import { GoArrowDown } from "react-icons/go";
 import { HiOutlineViewList } from "react-icons/hi";
+import ImgDev from "../../public/devimage.png";
 
 function Hero() {
     return (
@@ -17,7 +18,9 @@ function Hero() {
                             if (typeof window !== "undefined") {
                                 if (r && window.innerWidth <= 600) {
                                     r.style.display =
-                                        r.style.display == "none" ? "flex" : "none";
+                                        r.style.display == "none"
+                                            ? "flex"
+                                            : "none";
                                 }
                             }
                             document
@@ -33,7 +36,9 @@ function Hero() {
                             if (typeof window !== "undefined") {
                                 if (r && window.innerWidth <= 600) {
                                     r.style.display =
-                                        r.style.display == "none" ? "flex" : "none";
+                                        r.style.display == "none"
+                                            ? "flex"
+                                            : "none";
                                 }
                             }
                             document
@@ -49,7 +54,9 @@ function Hero() {
                             if (typeof window !== "undefined") {
                                 if (r && window.innerWidth <= 600) {
                                     r.style.display =
-                                        r.style.display == "none" ? "flex" : "none";
+                                        r.style.display == "none"
+                                            ? "flex"
+                                            : "none";
                                 }
                             }
                             document
@@ -87,7 +94,7 @@ function Hero() {
                         <p>Scroll For More</p>
                     </div>
                 </div>
-                <Image src={"/devimage.png"} width={400} height={400} alt="" />
+                <Image src={ImgDev} width={400} height={400} alt="" />
             </div>
             {}
         </div>
