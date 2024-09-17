@@ -122,13 +122,8 @@ function Contact() {
                 >
                     <div>
                         <div
+                            id="ytbcs"
                             style={{
-                                height:
-                                    typeof window !== "undefined"
-                                        ? window.innerWidth > 600
-                                            ? "1vw"
-                                            : "10px"
-                                        : "",
                                 background: "white",
                             }}
                             className="crclwht"
@@ -140,13 +135,8 @@ function Contact() {
                 <div className="sclapp">
                     <div>
                         <div
+                            id="lndes"
                             style={{
-                                height:
-                                    typeof window !== "undefined"
-                                        ? window.innerWidth > 600
-                                            ? "1.8vw"
-                                            : "16px"
-                                        : "",
                                 background: "white",
                                 borderRadius: "0",
                             }}

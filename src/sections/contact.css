@@ -101,6 +101,12 @@
     .sclapp svg {
         font-size: 23px;
     }
-    .sclapp > div {
+
+    #ytbcs {
+        height: 10px;
+    }
+
+    #lndes {
+        height: 16px;
     }
 }
