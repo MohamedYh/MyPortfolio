@@ -10,7 +10,7 @@ body {
     width: 100svw;
     height: fit-content;
     min-height: 100vh;
-    background-color: #000736;
+    /* background-color: #000736; */
     margin: 0;
     box-sizing: border-box;
 }
@@ -27,9 +27,16 @@ body {
 .imgcntr img {
     width: 100vw;
     height: 13.54vw;
-    position: fixed;
     background-size: cover;
-    z-index: 1;
-    bottom: 0;
     transition: 400ms;
+}
+
+.imgcntr {
+    bottom: 0;
+    z-index: 1;
+    position: fixed;
+    height: 100vh;
+    background: linear-gradient(to bottom, #000736 0%, #000d63 100%);
+    display: flex;
+    align-items: last baseline;
 }
