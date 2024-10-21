@@ -4,12 +4,13 @@ import styles from "./page.module.css";
 import Hero from "@/sections/hero";
 import About from "@/sections/about";
 import Portfolio from "@/sections/projects";
+import bcklsm from "../../public/bckstl.png";
 import Contact from "@/sections/contact";
 import { useEffect, useRef, useState } from "react";
 
 export default function Home() {
     const [offset, setOffset] = useState(0);
-    const imrf = useRef<HTMLDivElement>(null);
+    const imrf = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
         const onScroll = () => {
@@ -21,7 +22,7 @@ export default function Home() {
             }
             console.log(window.scrollY);
         };
-        
+
         window.removeEventListener("scroll", onScroll);
         window.addEventListener("scroll", onScroll, { passive: true });
         return () => window.removeEventListener("scroll", onScroll);
@@ -33,7 +34,15 @@ export default function Home() {
             <About />
             <Portfolio />
             <Contact />
-            <div ref={imrf} className="imgcntr"></div>
+            <div className="imgcntr">
+                <Image
+                    ref={imrf}
+                    src={bcklsm}
+                    width={400}
+                    height={400}
+                    alt=""
+                />
+            </div>
         </div>
     );
 }
