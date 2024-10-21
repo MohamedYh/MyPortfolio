@@ -20,4 +20,17 @@ body {
     height: 100svh;
     display: flex;
     flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.imgcntr {
+    width: 100vw;
+    height: 13.54vw;
+    position: fixed;
+    background-image: url("/bckstl.png");
+    background-size: cover;
+    z-index: 1;
+    bottom: 0;
+    transition: 400ms;
 }
