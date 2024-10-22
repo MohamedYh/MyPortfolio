@@ -72,7 +72,7 @@ function About() {
         <div className="section">
             <h1>About Me</h1>
             <p>
-                I’m a dedicated Moroccan web developer with{" "}
+                My name is Mohamed Aada, I’m a dedicated Moroccan web developer with{" "}
                 {numberToText(date.getFullYear() - 2021)} years of experience
                 and a deep mastery of web technologies. My passion for creating
                 seamless, high-performance websites drives me to deliver

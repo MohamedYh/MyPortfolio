@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-    title: "Mohamed Aada",
+    title: "MED X",
     creator: "Mohamed Aada",
 };
 

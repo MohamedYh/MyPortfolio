@@ -13,7 +13,7 @@ function Hero() {
     return (
         <div className="section">
             <div className="nav" id="nav">
-                <h1>Mohamed Aada</h1>
+                <h1>MED X</h1>
                 <ul id="ul">
                     <li
                         onClick={() => {
@@ -82,9 +82,7 @@ function Hero() {
             </div>
             <div className="mncnrt">
                 <div className="txtcntr">
-                    <p className="txthdr">
-                        Mohamed Aada, Full-Stack Web Developer
-                    </p>
+                    <p className="txthdr">MED X, Full-Stack Web Developer</p>
                     <div className="skillstools">
                         <div className="icnskl">
                             <svg

@@ -190,10 +190,15 @@ div.icnskl:nth-child(6) {
         height: calc(100% - 80px);
     }
 
+    .imgcntr img {
+        height: 20vh;
+    }
+
     .txtcntr {
         width: 90vw;
         margin-left: 10vw;
-        margin-top: 10vh;
+        margin-top: 6vh;
+        margin-bottom: 4vh;
     }
 
     .txtcntr > p {
