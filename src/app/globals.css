@@ -33,7 +33,6 @@ body {
 
 .imgcntr {
     bottom: 0;
-    z-index: 1;
     position: fixed;
     height: 100vh;
     background: linear-gradient(to bottom, #000736 0%, #000d63 100%);
