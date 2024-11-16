@@ -258,7 +258,7 @@
     animation-duration: 1.25s;
 }
 
-@media (max-width: 1200px) {
+@media (max-aspect-ratio: 4/3) {
     .section:nth-child(3) {
         height: fit-content;
     }
