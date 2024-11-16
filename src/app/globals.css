@@ -10,7 +10,6 @@ body {
     width: 100svw;
     height: fit-content;
     min-height: 100vh;
-    /* background-color: #000736; */
     margin: 0;
     box-sizing: border-box;
 }
@@ -21,7 +20,7 @@ body {
     display: flex;
     flex-direction: column;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 .imgcntr img {

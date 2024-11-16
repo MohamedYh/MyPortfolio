@@ -1,6 +1,7 @@
 .section:nth-child(3) {
     justify-content: space-between;
     align-items: center;
+    z-index: 3;
 }
 
 .section:nth-child(3) > h1 {
@@ -246,7 +247,7 @@
 }
 
 .cntrlr {
-    width: 100vw;   
+    width: 100vw;
     height: 100vh;
     position: fixed;
     display: flex;
