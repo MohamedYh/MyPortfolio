@@ -181,6 +181,7 @@
 
 .tls {
     display: flex;
+    overflow: auto;
 }
 .tl {
     width: auto;
@@ -191,7 +192,13 @@
     border-radius: 0.25vw;
     margin: 0 0.3vw;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
+.tl > svg {
+    margin-right: 6px;
+}
+
 .tls {
     margin-top: 1vh;
     margin-left: 0.5vw;

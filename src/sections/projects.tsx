@@ -2,7 +2,11 @@
 import React, { useEffect, useState } from "react";
 import "./projects.css";
 import { projectsData } from "@/projectsData";
-import { FaArrowLeft, FaArrowRight, FaYoutube } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaReact, FaYoutube } from "react-icons/fa";
+import { RiNextjsLine } from "react-icons/ri";
+import { SiExpress, SiMysql, SiPrisma } from "react-icons/si";
+import { LuFileJson2 } from "react-icons/lu";
+import { DiMongodb } from "react-icons/di";
 
 export interface Project {
     name: string;
@@ -18,33 +22,42 @@ function Projects() {
     const [prjClick, setPrjClick] = useState(false);
     const [imgSlide, setImgSlide] = useState(0);
     const [prjLst, setPrjLst] = useState(0);
+    const icons = [<FaReact />];
 
-    const clrScale = (tool: string) => {
+    const clr_icn_Scale = (tool: string) => {
         var clr = "";
+        var icon = null;
         switch (tool) {
             case "React":
                 clr = "#0287d0";
+                icon = <FaReact />;
                 break;
             case "NextJs":
                 clr = "#20232a";
+                icon = <RiNextjsLine />;
                 break;
             case "ExpressJs":
                 clr = "#adadad";
+                icon = <SiExpress />;
                 break;
             case "External API":
                 clr = "#adadad";
+                icon = <LuFileJson2 />;
                 break;
             case "MySQL":
                 clr = "#f0910e";
+                icon = <SiMysql />;
                 break;
             case "MongoDb":
                 clr = "#006548";
+                icon = <DiMongodb />;
                 break;
             case "Prisma":
                 clr = "#f6f6f6";
+                icon = <SiPrisma />;
                 break;
         }
-        return clr;
+        return { color: clr, icon: icon };
     };
 
     function getTextColorBasedOnBackground(hex: string): string {
@@ -211,13 +224,14 @@ function Projects() {
                                             <div
                                                 style={{
                                                     backgroundColor:
-                                                        clrScale(v),
+                                                        clr_icn_Scale(v).color,
                                                     color: getTextColorBasedOnBackground(
-                                                        clrScale(v)
+                                                        clr_icn_Scale(v).color
                                                     ),
                                                 }}
                                                 className="tl"
                                             >
+                                                {clr_icn_Scale(v).icon}
                                                 {v}
                                             </div>
                                         );
