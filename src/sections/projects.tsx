@@ -105,8 +105,6 @@ function Projects() {
         setImgSlide(0);
     }, [isProjectOpened]);
 
-    useEffect(() => {}, []);
-
     return (
         <div className="section">
             <h1>Projects</h1>
@@ -165,6 +163,7 @@ function Projects() {
                                         {x.tools.map((v, j) => {
                                             return (
                                                 <div
+                                                    title={v}
                                                     style={{
                                                         backgroundColor:
                                                             clr_icn_Scale(v)
