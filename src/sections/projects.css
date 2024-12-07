@@ -52,13 +52,13 @@
 }
 
 .prjct img {
-    width: 20vw;
-    height: 11.25vw;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: inherit;
 }
 
 .txtprj {
-    margin: 1.5vh 0.75vw;
+    margin: 1.5vh 0.75vw 0 0.75vw;
     width: 18.5vw;
     height: auto;
     font-size: 1.5vw;
@@ -150,6 +150,28 @@
     z-index: -1;
     position: absolute;
     transition: 500ms;
+}
+
+.img_prv_cntr {
+    box-sizing: border-box;
+    width: 95%;
+    margin-left: 2.5%;
+    margin-top: 2.5%;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 7px #000000b8;
+    height: 11.25vw;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.lfr p {
+    margin-left: 1vw;
+    color: #000000c2;
+    font-weight: 500;
+    font-size: 1.25vw;
+}
+.lfr p:hover {
+    color: darkblue;
 }
 
 @keyframes open {
@@ -263,6 +285,40 @@
     top: 0;
     animation-name: blur;
     animation-duration: 1.25s;
+}
+
+.prjct {
+    justify-content: space-between;
+}
+
+.tools_container {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    gap: clamp(5px, 0.75vw, 14px);
+    margin: 2vh 10px 0 0.75vw;
+    overflow: auto;
+}
+
+.toolicon {
+    background: gray;
+    width: calc(1.5vw + 17px);
+    height: calc(1.5vw + 17px);
+    color: black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolicon svg {
+    font-size: 1.5vw;
+}
+
+.datep {
+    font-family: sans;
+    color: rgba(0, 0, 0, 0.85);
+    margin: 0 0.75vw;
 }
 
 @media (max-aspect-ratio: 4/3) {

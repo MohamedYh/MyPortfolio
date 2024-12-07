@@ -53,7 +53,7 @@ function Projects() {
                 icon = <DiMongodb />;
                 break;
             case "Prisma":
-                clr = "#f6f6f6";
+                clr = "gray";
                 icon = <SiPrisma />;
                 break;
         }
@@ -105,6 +105,8 @@ function Projects() {
         setImgSlide(0);
     }, [isProjectOpened]);
 
+    useEffect(() => {}, []);
+
     return (
         <div className="section">
             <h1>Projects</h1>
@@ -152,18 +154,63 @@ function Projects() {
                                 }}
                                 className="prjct"
                             >
-                                <img
-                                    src={x.images[0]}
-                                    style={{ background: "grey" }}
-                                ></img>
-                                <p className="txtprj">
-                                    <span>{x.name}</span>
-                                    <span style={{ color: "transparent" }}>
+                                <div className="tpr">
+                                    <div className="img_prv_cntr">
+                                        <img
+                                            src={x.images[0]}
+                                            style={{ background: "grey" }}
+                                        ></img>
+                                    </div>
+                                    <div className="tools_container">
+                                        {x.tools.map((v, j) => {
+                                            return (
+                                                <div
+                                                    style={{
+                                                        backgroundColor:
+                                                            clr_icn_Scale(v)
+                                                                .color,
+                                                        color: getTextColorBasedOnBackground(
+                                                            clr_icn_Scale(v)
+                                                                .color
+                                                        ),
+                                                    }}
+                                                    className="toolicon"
+                                                >
+                                                    {clr_icn_Scale(v).icon}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                    <p className="txtprj">
+                                        <span>{x.name}</span>
+                                    </p>
+                                    <p className="datep">{x.created_date}</p>
+                                    <span
+                                        style={{
+                                            color: "transparent",
+                                            fontSize: "1.5vw",
+                                            wordWrap: "break-word",
+                                        }}
+                                    >
                                         {"T2G: A Website That Converts Tables Into Graphs".slice(
                                             x.name.length
                                         )}
                                     </span>
-                                </p>
+                                </div>
+                                <div className="lfr">
+                                    <p
+                                        onClick={() => {
+                                            typeof window !== "undefined"
+                                                ? (window.location.href =
+                                                      projectsData[
+                                                          isProjectOpened
+                                                      ].video)
+                                                : null;
+                                        }}
+                                    >
+                                        Learn More ↗
+                                    </p>
+                                </div>
                             </div>
                         );
                     })}
@@ -171,91 +218,6 @@ function Projects() {
             <p className="msgtoclnt">
                 "These projects are on GitHub, but they are private."
             </p>
-            {isProjectOpened != -1 ? (
-                <div onClick={() => setBackClick(true)} className="cntrlr">
-                    <div onClick={() => setPrjClick(true)} className="cntrprj">
-                        <div className="tprj">
-                            <div className="imgwrpr">
-                                <FaArrowLeft
-                                    onClick={() => {
-                                        const rt =
-                                            100 /
-                                            projectsData[isProjectOpened].images
-                                                .length;
-                                        if (Math.round(imgSlide) != 0) {
-                                            setImgSlide(imgSlide + rt);
-                                        }
-                                    }}
-                                    id="imgtoleft"
-                                />
-                                <FaArrowRight
-                                    onClick={() => {
-                                        const rt =
-                                            100 /
-                                            projectsData[isProjectOpened].images
-                                                .length;
-                                        console.log(imgSlide, rt);
-                                        if (
-                                            Math.round(imgSlide) !=
-                                            Math.round(-100 + rt)
-                                        ) {
-                                            setImgSlide(imgSlide - rt);
-                                        }
-                                    }}
-                                    id="imgtoright"
-                                />
-                                <div
-                                    style={{
-                                        transform: `translateX(${imgSlide}%)`,
-                                    }}
-                                    className="slider"
-                                >
-                                    {projectsData[isProjectOpened].images.map(
-                                        (v, i) => {
-                                            return <img src={v} alt="" />;
-                                        }
-                                    )}
-                                </div>
-                            </div>
-                            <div className="tls">
-                                {projectsData[isProjectOpened].tools.map(
-                                    (v, i) => {
-                                        return (
-                                            <div
-                                                style={{
-                                                    backgroundColor:
-                                                        clr_icn_Scale(v).color,
-                                                    color: getTextColorBasedOnBackground(
-                                                        clr_icn_Scale(v).color
-                                                    ),
-                                                }}
-                                                className="tl"
-                                            >
-                                                {clr_icn_Scale(v).icon}
-                                                {v}
-                                            </div>
-                                        );
-                                    }
-                                )}
-                            </div>
-                            <h1>{projectsData[isProjectOpened].name}</h1>
-                            <p>{projectsData[isProjectOpened].created_date}</p>
-                        </div>
-                        <div
-                            onClick={() => {
-                                typeof window !== "undefined"
-                                    ? (window.location.href =
-                                          projectsData[isProjectOpened].video)
-                                    : null;
-                            }}
-                            className="goytb"
-                        >
-                            <FaYoutube />
-                            <p>See The Video On Youtube</p>
-                        </div>
-                    </div>
-                </div>
-            ) : null}
         </div>
     );
 }
