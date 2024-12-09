@@ -16,7 +16,8 @@ body {
 
 .section {
     width: 100svw;
-    height: 100svh;
+    min-height: 100svh;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     position: relative;

@@ -52,7 +52,6 @@
 }
 
 .prjct img {
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
     width: 100%;
     height: inherit;
 }
@@ -88,9 +87,9 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 2vw;
+    font-size: max(2vw, 24px);
     font-family: "Lexend";
-    width: 58vw;
+    width: max(300px, 58vw);
     text-align: center;
     margin-bottom: 10vh;
 }
@@ -168,7 +167,7 @@
     margin-left: 1vw;
     color: #000000c2;
     font-weight: 500;
-    font-size: 1.25vw;
+    font-size: max(16px, 1.25vw);
 }
 .lfr p:hover {
     color: darkblue;
@@ -312,17 +311,22 @@
 }
 
 .toolicon svg {
-    font-size: 1.5vw;
+    font-size: max(1.5vw, 14px);
 }
 
 .datep {
     font-family: sans;
     color: rgba(0, 0, 0, 0.85);
-    margin: 0 0.75vw;
+    margin: 0 2vw;
+    font-size: max(16px, 1vw);
 }
 
 @media (max-aspect-ratio: 4/3) {
     .section:nth-child(3) {
+        height: fit-content;
+    }
+
+    .img_prv_cntr {
         height: fit-content;
     }
 
@@ -332,14 +336,14 @@
     }
 
     .prjct {
-        width: 55vw;
+        width: max(55vw, 220px);
         height: fit-content;
         margin: 2vh 0;
         border-radius: 4px;
     }
 
     .prjct img {
-        width: 55vw;
+        width: max(55vw, 220px);
         height: 30.9375vw;
     }
 

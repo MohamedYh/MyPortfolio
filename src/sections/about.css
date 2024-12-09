@@ -29,7 +29,8 @@
     .section:nth-child(2) {
         padding: 5vh 10vw;
         width: 80vw;
-        height: 90vh;
+        min-height: 90vh;
+        height: fit-content;
         justify-content: center;
     }
 
