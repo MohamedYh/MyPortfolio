@@ -4,7 +4,14 @@
 }
 
 .section:nth-child(4) > h1 {
-    color: white;
+    background: linear-gradient(
+        90deg,
+        rgba(22, 92, 242, 0.8) 0%,
+        rgba(184, 98, 255, 0.8) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-family: "Lexend";
     font-size: 5vw;
     font-style: normal;
@@ -81,7 +88,7 @@ textarea {
     margin-bottom: 4vh;
     font-family: "Lexend";
     font-weight: 400;
-    resize: vertical;
+    resize: none;
 }
 
 form input:focus,
@@ -91,7 +98,7 @@ textarea:focus {
 
 #message {
     height: clamp(150px, 30vh, 400px);
-    overflow: scroll;
+    overflow: auto;
 }
 
 .inputx {
@@ -125,20 +132,7 @@ input[type="submit"] {
     border-radius: 13px;
     box-sizing: content-box;
     padding: max(1vw, 10px) max(1.5vw, 15px);
-    animation: flip-horizontal 8s infinite;
     box-sizing: border-box;
-}
-
-@keyframes flip-horizontal {
-    0% {
-        transform: rotateY(0);
-    }
-    80% {
-        transform: rotateY(0);
-    }
-    100% {
-        transform: rotateY(360deg);
-    }
 }
 
 .imgnm {
@@ -280,7 +274,7 @@ input[type="submit"] {
 }
 
 .form_container > h1 {
-    color: white;
+    color: #b8c0f5;
     font-size: max(3vw, 36px);
     font-family: "Lexend";
     font-weight: 500;

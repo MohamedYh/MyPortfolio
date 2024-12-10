@@ -5,7 +5,14 @@
 }
 
 .section:nth-child(3) > h1 {
-    color: white;
+    background: linear-gradient(
+        90deg,
+        rgba(22, 92, 242, 0.8) 0%,
+        rgba(184, 98, 255, 0.8) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-family: "Lexend";
     font-size: 5vw;
     font-style: normal;
