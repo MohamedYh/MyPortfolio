@@ -324,7 +324,7 @@
 .datep {
     font-family: sans;
     color: rgba(0, 0, 0, 0.85);
-    margin: 0 2vw;
+    margin: 0 0.75vw;
     font-size: max(16px, 1vw);
 }
 
