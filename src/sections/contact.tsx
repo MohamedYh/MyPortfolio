@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, {useState} from "react";
 import "./contact.css";
 import {
     FaFacebook,
@@ -9,11 +9,46 @@ import {
     FaYoutube,
 } from "react-icons/fa";
 import { MdOutlineAlternateEmail, MdOutlineMail } from "react-icons/md";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { FaXTwitter } from "react-icons/fa6";
 import { FiPhone } from "react-icons/fi";
 import { GiPositionMarker } from "react-icons/gi";
+import {sendEmail} from "@/functions/sendEmail";
 
 function Contact() {
+    const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+    const [status, setStatus] = useState<string | null>(null);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        console.log(name,e.target.value);
+        setFormData((prev:any) => ({ ...prev, [name]: value }));
+    };
+
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setStatus('Sending...');
+        try {
+            const response = await sendEmail(
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    message: formData.message,
+                },
+                'uKvBehjso2cVbjqaA',
+                'service_kzwj795',
+                'template_qs4345n'
+            );
+            toast(response)
+            setStatus(response);
+        } catch (error) {
+            toast.error((error as Error).message);
+            setStatus((error as Error).message);
+        }
+    };
+
     return (
         <div
             style={{ height: "fit-content", minHeight: "100vh" }}
@@ -23,24 +58,39 @@ function Contact() {
             <div className="contact_cntr">
                 <div className="form_container">
                     <h1>Contact Me</h1>
-                    <form action="">
+                    <form onSubmit={handleSubmit} action="">
                         <div className="inputx">
                             <i></i>
-                            <input placeholder="Your Name" type="text" />
+                            <input
+                                value={formData.name}
+                                name="name"
+                                onChange={handleChange}
+                                placeholder="Your Name"
+                                type="text"
+                                required
+                            />
                         </div>
                         <div className="inputx">
                             <i></i>
                             <input
                                 placeholder="Your Email"
+                                name="email"
+                                onChange={handleChange}
+                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                value={formData.email}
                                 type="email"
-                                pattern="^[a-z][a-z0-9_.]*@(gmail|yahoo).com$/gm"
+                                required
                             />
                         </div>
                         <div className="inputx">
                             <i></i>
                             <textarea
                                 id="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                name='message'
                                 placeholder="Enter Your Message Here"
+                                required
                             />
                         </div>
                         <input type="submit" />
@@ -130,6 +180,7 @@ function Contact() {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 }
