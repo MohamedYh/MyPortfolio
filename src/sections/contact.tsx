@@ -101,6 +101,7 @@ function Contact() {
                             <h2>Mohamed Aada</h2>
                             <p id="jb">Web Developer</p>
                             <p>5 years of experience</p>
+                            <p>About ↗</p>
                         </div>
                     </div>
                     <div className="socialmediaicons">

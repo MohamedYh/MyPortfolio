@@ -27,7 +27,7 @@ function Hero() {
                                 }
                             }
                             document
-                                .getElementsByClassName("section")[1]
+                                .getElementsByClassName("section")[2]
                                 .scrollIntoView({ behavior: "smooth" });
                         }}
                     >
@@ -45,7 +45,7 @@ function Hero() {
                                 }
                             }
                             document
-                                .getElementsByClassName("section")[2]
+                                .getElementsByClassName("section")[1]
                                 .scrollIntoView({ behavior: "smooth" });
                         }}
                     >
@@ -63,7 +63,7 @@ function Hero() {
                                 }
                             }
                             document
-                                .getElementsByClassName("section")[3]
+                                .getElementsByClassName("section")[2]
                                 .scrollIntoView({ behavior: "smooth" });
                         }}
                     >

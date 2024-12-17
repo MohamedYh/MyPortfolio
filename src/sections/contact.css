@@ -1,9 +1,9 @@
-.section:nth-child(4) {
+.section:nth-child(3) {
     justify-content: space-between;
     align-items: center;
 }
 
-.section:nth-child(4) > h1 {
+.section:nth-child(3) > h1 {
     background: linear-gradient(
         90deg,
         rgba(22, 92, 242, 0.8) 0%,
@@ -216,6 +216,45 @@ input[type="submit"] {
     margin: 7px 0;
     font-size: max(16px, 0.85vw);
     color: #b8c0f5;
+}
+
+.nmscd p:last-child {
+    text-decoration: underline;
+    position: relative;
+    cursor: pointer;
+}
+
+.nmscd p:last-child:hover::before{
+    display: block;
+}
+
+.nmscd p:last-child::before:hover {
+    display: block;
+}
+
+.nmscd p:last-child::before {
+    display: none;
+    content: 'My name is Mohamed Aada, I’m a dedicated Moroccan web developer with three years of experience and a deep mastery of web technologies. My passion for creating seamless, high-performance websites drives me to deliver exceptional results. I excel in both technical skills and soft skills, including effective communication and teamwork. Always eager to tackle new challenges, I’m committed to crafting intuitive solutions that exceed client expectations. Let’s connect and bring your digital vision to life!';
+    position: absolute;
+    font-size: 15px;
+    width: fit-content;
+    background: #3d3d7c;
+    padding: 14px;
+    border-radius: 6px;
+    width: 336px;
+    box-sizing: inherit;
+    border: 3px solid rgb(144 179 255 / 80%);
+    top: calc(100% + 3px);
+    box-shadow: 0px 0px 9px 0px rgb(255 255 255 / 43%);
+    animation: open 200ms linear;
+}
+
+@keyframes open {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
 }
 
 .socialmediaicons {
