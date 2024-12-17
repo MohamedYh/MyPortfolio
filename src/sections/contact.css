@@ -127,12 +127,42 @@ input[type="submit"] {
 .profile {
     width: 30vw;
     height: fit-content;
-    background: rgba(255, 255, 255, 0.2);
-    border: 4px solid #b8c0f5;
+    background: rgba(56, 64, 115, 0.96);
+    position: relative;
     border-radius: 13px;
     box-sizing: content-box;
     padding: max(1vw, 10px) max(1.5vw, 15px);
     box-sizing: border-box;
+}
+
+@property --angle {
+    initial-value: 0deg;
+    syntax: "<angle>";
+    inherits: false;
+}
+
+.profile::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    background: conic-gradient(from var(--angle),rgb(144 179 255 / 80%), #6e2abc, #3410ab, rgb(113, 136, 226), rgb(144 179 255 / 80%));
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    padding: 4px;
+    border-radius: 14px;
+    animation: spin 3s linear infinite;
+}
+
+
+@keyframes spin {
+    from {
+        --angle: 0deg;
+    } to {
+    --angle: 360deg;
+    }
 }
 
 .imgnm {
@@ -225,7 +255,7 @@ input[type="submit"] {
     font-family: "Lexend";
     font-size: max(20px, 1.5vw);
     width: 80%;
-    text-align: revert-layer;
+    text-align: revert;
     color: #c7c7c7;
     font-weight: 350;
     margin: 0;

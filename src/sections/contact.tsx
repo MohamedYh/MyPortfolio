@@ -8,7 +8,7 @@ import {
     FaLinkedin,
     FaYoutube,
 } from "react-icons/fa";
-import { MdOutlineAlternateEmail, MdOutlineMail } from "react-icons/md";
+import {  MdOutlineMail } from "react-icons/md";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaXTwitter } from "react-icons/fa6";
@@ -18,7 +18,6 @@ import {sendEmail} from "@/functions/sendEmail";
 
 function Contact() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-    const [status, setStatus] = useState<string | null>(null);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -29,7 +28,6 @@ function Contact() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setStatus('Sending...');
         try {
             const response = await sendEmail(
                 {
@@ -42,10 +40,8 @@ function Contact() {
                 'template_qs4345n'
             );
             toast(response)
-            setStatus(response);
         } catch (error) {
             toast.error((error as Error).message);
-            setStatus((error as Error).message);
         }
     };
 
@@ -54,7 +50,7 @@ function Contact() {
             style={{ height: "fit-content", minHeight: "100vh" }}
             className="section"
         >
-            <h1>Contact</h1>
+            <h1>Get In Touch</h1>
             <div className="contact_cntr">
                 <div className="form_container">
                     <h1>Contact Me</h1>
