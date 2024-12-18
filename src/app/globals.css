@@ -12,7 +12,50 @@ body {
     min-height: 100vh;
     margin: 0;
     box-sizing: border-box;
+    cursor: none;
     overflow-x: hidden;
+    scrollbar-width: thin; /* Thin scrollbar */
+    scrollbar-color: rgba(100, 116, 214, 0.96) rgba(40, 46, 78, 0.96); /* Thumb color and track color */
+}
+
+/* For WebKit Browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 40px; /* Width of vertical scrollbar */
+    height: 4px; /* Height of horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(56, 64, 115, 0.96); /* Scrollbar thumb color */
+    border-radius: 100px; /* Rounded corners for the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker color on hover */
+}
+
+.cursor {
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    border-radius: 50%;
+    border: 2px solid #aec0ff;
+    position: absolute;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.cursor .point {
+    background: white;
+    width: 2px;
+    height: 2px;
 }
 
 .section {
