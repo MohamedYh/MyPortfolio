@@ -231,6 +231,9 @@ input[type="submit"] {
 .nmscd p:last-child::before:hover {
     display: block;
 }
+.nmscd p:last-child::before:active {
+    display: block;
+}
 
 .nmscd p:last-child::before {
     display: none;
@@ -241,7 +244,7 @@ input[type="submit"] {
     background: #3d3d7c;
     padding: 14px;
     border-radius: 6px;
-    width: 336px;
+    width: min(336px,52vw);
     box-sizing: inherit;
     border: 3px solid rgb(144 179 255 / 80%);
     top: calc(100% + 3px);
