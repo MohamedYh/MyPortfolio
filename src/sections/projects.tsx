@@ -1,12 +1,12 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./projects.css";
-import { projectsData } from "@/projectsData";
-import { FaArrowLeft, FaArrowRight, FaReact, FaYoutube } from "react-icons/fa";
-import { RiNextjsLine } from "react-icons/ri";
-import { SiExpress, SiMysql, SiPrisma } from "react-icons/si";
-import { LuFileJson2 } from "react-icons/lu";
-import { DiMongodb } from "react-icons/di";
+import {projectsData} from "@/projectsData";
+import {FaArrowLeft, FaArrowRight, FaReact, FaYoutube} from "react-icons/fa";
+import {RiNextjsLine} from "react-icons/ri";
+import {SiExpress, SiMysql, SiPrisma} from "react-icons/si";
+import {LuFileJson2} from "react-icons/lu";
+import {DiMongodb} from "react-icons/di";
 
 export interface Project {
     name: string;
@@ -21,8 +21,17 @@ function Projects() {
     const [backClick, setBackClick] = useState(false);
     const [prjClick, setPrjClick] = useState(false);
     const [imgSlide, setImgSlide] = useState(0);
+    const [index, setIndex] = useState<number>(0);
+    const [lengths, setLengths] = useState<Array<number>>([]);
     const [prjLst, setPrjLst] = useState(0);
-    const icons = [<FaReact />];
+    const icons = [<FaReact/>];
+
+    useEffect(() => {
+        setLengths(projectsData.map((v, i) => v.images.length))
+    }, []);
+    useEffect(() => {
+        console.log(lengths, index)
+    }, [lengths, index]);
 
     const clr_icn_Scale = (tool: string) => {
         var clr = "";
@@ -30,34 +39,34 @@ function Projects() {
         switch (tool) {
             case "React":
                 clr = "#0287d0";
-                icon = <FaReact />;
+                icon = <FaReact/>;
                 break;
             case "NextJs":
                 clr = "#20232a";
-                icon = <RiNextjsLine />;
+                icon = <RiNextjsLine/>;
                 break;
             case "ExpressJs":
                 clr = "#adadad";
-                icon = <SiExpress />;
+                icon = <SiExpress/>;
                 break;
             case "External API":
                 clr = "#adadad";
-                icon = <LuFileJson2 />;
+                icon = <LuFileJson2/>;
                 break;
             case "MySQL":
                 clr = "#f0910e";
-                icon = <SiMysql />;
+                icon = <SiMysql/>;
                 break;
             case "MongoDb":
                 clr = "#006548";
-                icon = <DiMongodb />;
+                icon = <DiMongodb/>;
                 break;
             case "Prisma":
                 clr = "gray";
-                icon = <SiPrisma />;
+                icon = <SiPrisma/>;
                 break;
         }
-        return { color: clr, icon: icon };
+        return {color: clr, icon: icon};
     };
 
     function getTextColorBasedOnBackground(hex: string): string {
@@ -68,7 +77,7 @@ function Projects() {
             let g = parseInt(hex.substring(2, 4), 16);
             let b = parseInt(hex.substring(4, 6), 16);
 
-            return { r, g, b };
+            return {r, g, b};
         };
 
         const getLuminance = (r: number, g: number, b: number) => {
@@ -81,7 +90,7 @@ function Projects() {
             return 0.2126 * R + 0.7152 * G + 0.0722 * B;
         };
 
-        const { r, g, b } = hexToRgb(hex);
+        const {r, g, b} = hexToRgb(hex);
 
         const luminance = getLuminance(r, g, b);
 
@@ -105,10 +114,29 @@ function Projects() {
         setImgSlide(0);
     }, [isProjectOpened]);
 
+    const slider = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex(index + 1)
+            const v = index + 1;
+            for (let i = 0; i < projectsData.length; i++) {
+                if (!slider.current) {
+                    return;
+                }
+                const x = (v) % (lengths[i]);
+                const elements = slider.current.querySelectorAll(".draewrimgr") as unknown as HTMLDivElement[];
+                elements[i].style.transform = `translateX(${-19 * x}vw)`;
+            }
+
+        }, 3500);
+
+        return () => clearInterval(interval); // Cleanup on unmount
+    }, [index, slider]);
+
     return (
         <div className="section">
             <h1>Projects</h1>
-            <div className="prjcts">
+            <div ref={slider} className="prjcts">
                 {projectsData.length > 4 && window.innerWidth > 600 ? (
                     <>
                         <FaArrowLeft
@@ -154,10 +182,13 @@ function Projects() {
                             >
                                 <div className="tpr">
                                     <div className="img_prv_cntr">
-                                        <img
-                                            src={x.images[0]}
-                                            style={{ background: "grey" }}
-                                        ></img>
+                                        <div className={"draewrimgr"}>
+                                            {x.images.map((image) => <img
+                                                alt={""}
+                                                src={image}
+                                                style={{background: "grey"}}
+                                            ></img>)}
+                                        </div>
                                     </div>
                                     <div className="tools_container">
                                         {x.tools.map((v, j) => {
@@ -166,8 +197,8 @@ function Projects() {
                                                     title={v}
                                                     style={{
                                                         backgroundColor:
-                                                            clr_icn_Scale(v)
-                                                                .color,
+                                                        clr_icn_Scale(v)
+                                                            .color,
                                                         color: getTextColorBasedOnBackground(
                                                             clr_icn_Scale(v)
                                                                 .color
@@ -201,9 +232,9 @@ function Projects() {
                                         onClick={() => {
                                             typeof window !== "undefined"
                                                 ? (window.location.href =
-                                                      projectsData[
-                                                          isProjectOpened
-                                                      ].video)
+                                                    projectsData[
+                                                        isProjectOpened
+                                                        ].video)
                                                 : null;
                                         }}
                                     >

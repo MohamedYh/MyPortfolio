@@ -5,11 +5,13 @@ import Hero from "@/sections/hero";
 import Portfolio from "@/sections/projects";
 import bcklsm from "../../public/bckstl.png";
 import Contact from "@/sections/contact";
+import {isMobile} from "react-device-detect"
 import {useEffect, useRef, useState} from "react";
 
 export default function Home() {
     const [offset, setOffset] = useState(0);
     const imrf = useRef<HTMLImageElement>(null);
+
 
     useEffect(() => {
         const onScroll = () => {
@@ -31,9 +33,8 @@ export default function Home() {
     useEffect(() => {
         const handleMouseMove = (e: any) => {
             if (cursor.current) {
-                console.log(e.pageY);
-                cursor.current.style.top = (e.pageY-35)+"px";
-                cursor.current.style.left = (e.pageX-35)+"px";
+                cursor.current.style.top = (e.pageY-20)+"px";
+                cursor.current.style.left = (e.pageX-20)+"px";
             }
         }
 
@@ -59,9 +60,9 @@ export default function Home() {
                     alt=""
                 />
             </div>
-            <div ref={cursor} className="cursor">
+            {!isMobile ? <div ref={cursor} className="cursor">
                 <div className="point"></div>
-            </div>
+            </div> : null}
         </div>
     );
 }

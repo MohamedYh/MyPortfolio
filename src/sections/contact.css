@@ -228,11 +228,18 @@ input[type="submit"] {
     display: block;
 }
 
+.clickable {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
 .nmscd p:last-child::before:hover {
     display: block;
 }
-.nmscd p:last-child::before:active {
-    display: block;
+.nmscd p:last-child::before:focus {
+    display: block!important;
 }
 
 .nmscd p:last-child::before {
