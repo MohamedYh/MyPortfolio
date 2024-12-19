@@ -5,9 +5,9 @@
 
 .section:nth-child(3) > h1 {
     background: linear-gradient(
-        90deg,
-        rgba(22, 92, 242, 0.8) 0%,
-        rgba(184, 98, 255, 0.8) 100%
+            90deg,
+            rgba(22, 92, 242, 0.8) 0%,
+            rgba(184, 98, 255, 0.8) 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -147,7 +147,7 @@ input[type="submit"] {
     height: 100%;
     position: absolute;
     left: 50%;
-    background: conic-gradient(from var(--angle),rgb(144 179 255 / 80%), #6e2abc, #3410ab, rgb(113, 136, 226), rgb(144 179 255 / 80%));
+    background: conic-gradient(from var(--angle), rgb(144 179 255 / 80%), #6e2abc, #3410ab, rgb(113, 136, 226), rgb(144 179 255 / 80%));
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
@@ -160,8 +160,9 @@ input[type="submit"] {
 @keyframes spin {
     from {
         --angle: 0deg;
-    } to {
-    --angle: 360deg;
+    }
+    to {
+        --angle: 360deg;
     }
 }
 
@@ -222,24 +223,21 @@ input[type="submit"] {
     text-decoration: underline;
     position: relative;
     cursor: pointer;
+    webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.nmscd p:last-child:hover::before{
+.nmscd p:last-child:hover::before {
     display: block;
 }
 
-.clickable {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: blue;
-    color: white;
-    cursor: pointer;
-}
 .nmscd p:last-child::before:hover {
     display: block;
 }
+
 .nmscd p:last-child::before:focus {
-    display: block!important;
+    display: block !important;
 }
 
 .nmscd p:last-child::before {
@@ -251,7 +249,7 @@ input[type="submit"] {
     background: #3d3d7c;
     padding: 14px;
     border-radius: 6px;
-    width: min(336px,52vw);
+    width: min(336px, 52vw);
     box-sizing: inherit;
     border: 3px solid rgb(144 179 255 / 80%);
     top: calc(100% + 3px);
@@ -262,7 +260,8 @@ input[type="submit"] {
 @keyframes open {
     from {
         opacity: 0;
-    } to {
+    }
+    to {
         opacity: 1;
     }
 }
@@ -362,10 +361,12 @@ input[type="submit"] {
         flex-direction: column-reverse;
         align-items: center;
     }
+
     .profile {
         width: 45vw;
         margin-bottom: 8vh;
     }
+
     .form_container {
         width: 45vw;
     }
@@ -376,10 +377,12 @@ input[type="submit"] {
         flex-direction: column-reverse;
         align-items: center;
     }
+
     .profile {
         width: 80vw;
         margin-bottom: 8vh;
     }
+
     .form_container {
         width: 80vw;
     }
@@ -388,12 +391,15 @@ input[type="submit"] {
         padding: 5vh 0;
         height: 90svh;
     }
+
     .section:nth-child(3) h1 {
         font-size: 34px;
     }
+
     .sclapp {
         width: 84vw;
     }
+
     .sclmedia {
         font-size: 27px;
     }
@@ -408,6 +414,7 @@ input[type="submit"] {
         width: 17px;
         height: 22px;
     }
+
     .sclapp svg {
         font-size: 23px;
     }
@@ -419,6 +426,7 @@ input[type="submit"] {
     #lndes {
         height: 16px;
     }
+
     .nmscd p:last-child::before {
         font-size: 12px;
     }

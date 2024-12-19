@@ -124,8 +124,9 @@ function Projects() {
                     return;
                 }
                 const x = (v) % (lengths[i]);
+                const vl = window.innerWidth/window.innerHeight < (4/3) ? `min(${-52.25*x}vw, ${-209*x}px)` : `${-19 * x}vw`
                 const elements = slider.current.querySelectorAll(".draewrimgr") as unknown as HTMLDivElement[];
-                elements[i].style.transform = `translateX(${-19 * x}vw)`;
+                elements[i].style.transform = `translateX(${vl})`;
             }
 
         }, 3500);

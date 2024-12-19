@@ -177,7 +177,7 @@
 }
 
 .lfr p {
-    margin-left: 1vw;
+    margin-left: max(0.75vw, 10px);
     color: rgba(230, 230, 230, 0.76);
     font-weight: 500;
     font-size: max(16px, 1.25vw);
@@ -330,7 +330,7 @@
 .datep {
     font-family: sans;
     color: rgba(223, 223, 223, 0.85);
-    margin: 0 0.75vw;
+    margin: 0 max(0.75vw, 10px);
     font-size: max(16px, 1vw);
 }
 
@@ -343,6 +343,7 @@
 .draewrimgr img {
     height: 11.75vw;
 }
+
 @media (max-aspect-ratio: 4/3) {
     .section:nth-child(2) {
         height: fit-content;
@@ -365,7 +366,7 @@
     }
 
     .prjct img {
-        width: max(55vw, 220px);
+        width: max(52.25vw, 209px);
         height: 30.9375vw;
     }
 
