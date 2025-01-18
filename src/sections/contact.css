@@ -305,7 +305,6 @@ input[type="submit"] {
 
 .sliderprfl > div:not(.prflhrz) {
     padding: max(1vw, 10px) max(1.5vw, 15px);
-    flex: 1;
 }
 
 .aboutprfl h2 {
@@ -512,6 +511,10 @@ input[type="submit"] {
     .section:nth-child(3) {
         padding: 5vh 0;
         height: 90svh;
+    }
+
+    .sliderprfl > div:not(.prflhrz) {
+        flex: 1;
     }
 
     .section:nth-child(3) h1 {
