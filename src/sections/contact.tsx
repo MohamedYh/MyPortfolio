@@ -158,7 +158,7 @@ function Contact() {
                                         onClick={() => {
                                             typeof window !== "undefined"
                                                 ? (window.location.href =
-                                                    "https://www.facebook.com/share/xhUBsGd3vEN5v7jZ/?mibextid=qi2Omg")
+                                                    "https://github.com/MohamedYh")
                                                 : null;
                                         }}
                                     />
