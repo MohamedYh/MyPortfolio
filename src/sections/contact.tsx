@@ -18,6 +18,7 @@ import {FiPhone} from "react-icons/fi";
 import {GiPositionMarker} from "react-icons/gi";
 import {sendEmail} from "@/functions/sendEmail";
 import {BiArrowToLeft, BiArrowToRight} from "react-icons/bi";
+import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io";
 
 function Contact() {
     const [formData, setFormData] = useState({name: '', email: '', message: ''});
@@ -116,8 +117,10 @@ function Contact() {
                              ref={profileSlider} className={'sliderprfl'}>
                             <div className={'cardprfl'}>
                                 <div className="imgnm">
-                                    <div className="img_cntr_prf">
-                                        <img src="" alt=""/>
+                                    <div className={'avat'}>
+                                        <div className={'flrw'}></div>
+                                        <div className="img_cntr_prf">
+                                        </div>
                                     </div>
                                     <div className="nmscd">
                                         <h2>Mohamed Aada</h2>
@@ -198,6 +201,7 @@ function Contact() {
                                     </div>
                                 </div>
                             </div>
+                            <div className={'prflhrz'}/>
                             <div className="aboutprfl">
                                 <h2>About </h2>
                                 <p>'My name is Mohamed Aada, I’m a dedicated Moroccan web developer with three years of
@@ -216,7 +220,7 @@ function Contact() {
                         </div>
                     </div>
                     {profileSlider.current ? profileSlider.current.style.transform != "translateX(-50%)" ?
-                        <FaArrowRight style={{right: '0'}} onClick={SwipeProfile} /> : <FaArrowLeft onClick={SwipeProfile}/> : null}
+                        <IoIosArrowForward style={{right: '0'}} onClick={SwipeProfile} /> : <IoIosArrowBack onClick={SwipeProfile}/> : null}
                 </div>
             </div>
             <ToastContainer/>
