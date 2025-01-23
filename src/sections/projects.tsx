@@ -26,21 +26,29 @@ function Projects() {
     const [prjLst, setPrjLst] = useState(0);
     const icons = [<FaReact/>];
 
-    const [imgWidth, setImgWidth] = useState("19vw");
+    const [imgWidth, setImgWidth] = useState("0");
 
     useEffect(() => {
         setLengths(projectsData.map((v, i) => v.images.length))
     }, []);
 
+    function HandleResize() {
+        if (window.innerWidth/window.innerHeight < (4/3)) {
+            var wdt = 52.5*0.01 * window.innerWidth;
+            setImgWidth(wdt > 209 ? '52.5vw' : '209px');
+        } else {
+            setImgWidth('19vw');
+        }
+    }
 
-    // useEffect(() => {
-    //     if (window.innerWidth/window.innerHeight < (4/3)) {
-    //         var wdt = 52.5*0.01 * window.innerWidth;
-    //         setImgWidth(wdt > 209 ? '52.5vw' : '209px');
-    //     } else {
-    //         setImgWidth('19vw');
-    //     }
-    // }, [window.innerWidth,window.innerHeight]);
+    useEffect(() => {
+        window.addEventListener("resize", HandleResize);
+        HandleResize();
+        return () => {
+            window.removeEventListener("resize", HandleResize);
+        };
+    }, []);
+
 
     useEffect(() => {
         console.log(imgWidth);
@@ -156,27 +164,29 @@ function Projects() {
         <div className="section">
             <h1>Projects</h1>
             <div ref={slider} className="prjcts">
-                {projectsData.length > 4 && window.innerWidth > 600 ? (
-                    <>
-                        <FaArrowLeft
-                            onClick={() => {
-                                setPrjLst(Math.max(prjLst - 1, 0));
-                            }}
-                            id="lft"
-                        />
-                        <FaArrowRight
-                            onClick={() => {
-                                setPrjLst(
-                                    Math.min(
-                                        prjLst + 1,
-                                        Math.ceil(projectsData.length / 4) - 1
-                                    )
-                                );
-                            }}
-                            id="rght"
-                        />
-                    </>
-                ) : null}
+                {typeof window !== "undefined" ?
+                    projectsData.length > 4 && window.innerWidth > 600 ? (
+                        <>
+                            <FaArrowLeft
+                                onClick={() => {
+                                    setPrjLst(Math.max(prjLst - 1, 0));
+                                }}
+                                id="lft"
+                            />
+                            <FaArrowRight
+                                onClick={() => {
+                                    setPrjLst(
+                                        Math.min(
+                                            prjLst + 1,
+                                            Math.ceil(projectsData.length / 4) - 1
+                                        )
+                                    );
+                                }}
+                                id="rght"
+                            />
+                        </>
+                    ) : null
+                 : null}
                 {projectsData
                     .slice(
                         typeof window !== "undefined"
