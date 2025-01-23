@@ -27,7 +27,7 @@
 
 .prjct {
     width: 20vw;
-    height: -moz-fit-content;
+    height: fit-content;
     height: fit-content;
     color: white;
     background: #3d3d7c;

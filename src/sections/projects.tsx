@@ -127,19 +127,20 @@ function Projects() {
         setImgSlide(0);
     }, [isProjectOpened]);
 
-    const slider = useRef<HTMLDivElement>(null);
+    const slider = useRef<HTMLDivElement | null>(null);
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex(index + 1)
             const v = index + 1;
             for (let i = 0; i < projectsData.length; i++) {
-                if (!slider.current) {
-                    return;
+                if (slider.current !== null) {
+                    const x = (v) % (lengths[i]);
+                    const vl = window.innerWidth/window.innerHeight < (4/3) ? `min(${-52.25*x}vw, ${-209*x}px)` : `${-19 * x}vw`;
+                    const elements = slider.current.querySelectorAll(".draewrimgr");
+                    if (elements && elements[i]) {
+                        (elements[i] as HTMLDivElement).style.transform = `translateX(${vl})`;
+                    }
                 }
-                const x = (v) % (lengths[i]);
-                const vl = window.innerWidth/window.innerHeight < (4/3) ? `min(${-52.25*x}vw, ${-209*x}px)` : `${-19 * x}vw`
-                const elements = slider.current.querySelectorAll(".draewrimgr") as unknown as HTMLDivElement[];
-                elements[i].style.transform = `translateX(${vl})`;
             }
 
         }, 3500);
