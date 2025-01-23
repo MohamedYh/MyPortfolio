@@ -6,9 +6,9 @@
 
 .section:nth-child(2) > h1 {
     background: linear-gradient(
-        90deg,
-        rgba(22, 92, 242, 0.8) 0%,
-        rgba(184, 98, 255, 0.8) 100%
+            90deg,
+            rgba(22, 92, 242, 0.8) 0%,
+            rgba(184, 98, 255, 0.8) 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -87,12 +87,12 @@
 
 .msgtoclnt {
     background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0.8) 0%,
-        #999 25%,
-        rgba(255, 255, 255, 0.75) 50%,
-        #999 75%,
-        rgba(255, 255, 255, 0.8) 100%
+            90deg,
+            rgba(255, 255, 255, 0.8) 0%,
+            #999 25%,
+            rgba(255, 255, 255, 0.75) 50%,
+            #999 75%,
+            rgba(255, 255, 255, 0.8) 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
@@ -376,7 +376,7 @@
     .txtprj {
         font-size: 20px;
         width: 50vw;
-    margin: 1vh max(0.75vw, 10px);
+        margin: 1vh max(0.75vw, 10px);
     }
 
     .cntrprj {
