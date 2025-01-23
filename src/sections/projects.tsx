@@ -23,6 +23,7 @@ function Projects() {
     const [imgSlide, setImgSlide] = useState(0);
     const [index, setIndex] = useState<number>(0);
     const [lengths, setLengths] = useState<Array<number>>([]);
+
     const [prjLst, setPrjLst] = useState(0);
     const icons = [<FaReact/>];
 
