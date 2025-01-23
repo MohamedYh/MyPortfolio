@@ -202,7 +202,8 @@ function Projects() {
                                 <div className="tpr">
                                     <div className="img_prv_cntr">
                                         <div style={{width: ImageWrapperWidth(x.images.length)}} className={"draewrimgr"}>
-                                            {x.images.map((image) => <img
+                                            {x.images.map((image,idx) => <img
+                                                key={idx}
                                                 alt={""}
                                                 src={image}
                                                 style={{background: "grey"}}
@@ -213,6 +214,7 @@ function Projects() {
                                         {x.tools.map((v, j) => {
                                             return (
                                                 <div
+                                                    key={j}
                                                     title={v}
                                                     style={{
                                                         backgroundColor:

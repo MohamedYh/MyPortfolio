@@ -26,14 +26,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <header>
+            <head>
                 <link
                     rel="icon"
                     href="./favicon.png"
                     type="image/x-icon"
                     sizes="36x36"
                 ></link>
-            </header>
+            </head>
             <body className={`${geistSans.variable} ${geistMono.variable}`}>
                 {children}
             </body>
