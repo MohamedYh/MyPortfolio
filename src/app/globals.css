@@ -12,7 +12,6 @@ body {
     min-height: 100vh;
     margin: 0;
     box-sizing: border-box;
-    cursor: none;
     overflow-x: hidden;
     scrollbar-width: thin; /* Thin scrollbar */
     scrollbar-color: rgba(100, 116, 214, 0.96) rgba(40, 46, 78, 0.96); /* Thumb color and track color */

@@ -26,12 +26,25 @@ function Projects() {
     const [prjLst, setPrjLst] = useState(0);
     const icons = [<FaReact/>];
 
+    const [imgWidth, setImgWidth] = useState("0");
+
     useEffect(() => {
         setLengths(projectsData.map((v, i) => v.images.length))
     }, []);
+
+
     useEffect(() => {
-        console.log(lengths, index)
-    }, [lengths, index]);
+        if (window.innerWidth/window.innerHeight < (4/3)) {
+            var wdt = 52.5*0.01 * window.innerWidth;
+            setImgWidth(wdt > 209 ? '52.5vw' : '209px');
+        } else {
+            setImgWidth('19vw');
+        }
+    }, [window.innerWidth,window.innerHeight]);
+
+    useEffect(() => {
+        console.log(imgWidth);
+    }, [imgWidth]);
 
     const clr_icn_Scale = (tool: string) => {
         var clr = "";
@@ -134,6 +147,9 @@ function Projects() {
         return () => clearInterval(interval); // Cleanup on unmount
     }, [index, slider]);
 
+    function ImageWrapperWidth(length: number) {
+        return `${parseInt(imgWidth.slice(0,-2))*length}${imgWidth.slice(-2)}`
+    }
     return (
         <div className="section">
             <h1>Projects</h1>
@@ -183,7 +199,7 @@ function Projects() {
                             >
                                 <div className="tpr">
                                     <div className="img_prv_cntr">
-                                        <div className={"draewrimgr"}>
+                                        <div style={{width: ImageWrapperWidth(x.images.length)}} className={"draewrimgr"}>
                                             {x.images.map((image) => <img
                                                 alt={""}
                                                 src={image}

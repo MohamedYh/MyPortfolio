@@ -32,7 +32,6 @@ export default function Home() {
     const cursor = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const handleMouseMove = (e: any) => {
-            console.log('sd')
             if (cursor.current) {
                 cursor.current.style.top = (e.pageY-20)+"px";
                 cursor.current.style.left = (e.pageX-20)+"px";
@@ -62,9 +61,7 @@ export default function Home() {
                     alt=""
                 />
             </div>
-            {!isMobile ? <div ref={cursor} className="cursor">
-                <div className="point"></div>
-            </div> : null}
+
         </div>
     );
 }
