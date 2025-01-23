@@ -41,6 +41,7 @@ export default function Home() {
         window.addEventListener("mousemove", handleMouseMove);
         window.addEventListener("scroll", handleMouseMove);
 
+
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
             window.removeEventListener("scroll", handleMouseMove);
