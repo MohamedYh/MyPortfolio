@@ -26,21 +26,21 @@ function Projects() {
     const [prjLst, setPrjLst] = useState(0);
     const icons = [<FaReact/>];
 
-    const [imgWidth, setImgWidth] = useState("0");
+    const [imgWidth, setImgWidth] = useState("19vw");
 
     useEffect(() => {
         setLengths(projectsData.map((v, i) => v.images.length))
     }, []);
 
 
-    useEffect(() => {
-        if (window.innerWidth/window.innerHeight < (4/3)) {
-            var wdt = 52.5*0.01 * window.innerWidth;
-            setImgWidth(wdt > 209 ? '52.5vw' : '209px');
-        } else {
-            setImgWidth('19vw');
-        }
-    }, [window.innerWidth,window.innerHeight]);
+    // useEffect(() => {
+    //     if (window.innerWidth/window.innerHeight < (4/3)) {
+    //         var wdt = 52.5*0.01 * window.innerWidth;
+    //         setImgWidth(wdt > 209 ? '52.5vw' : '209px');
+    //     } else {
+    //         setImgWidth('19vw');
+    //     }
+    // }, [window.innerWidth,window.innerHeight]);
 
     useEffect(() => {
         console.log(imgWidth);
