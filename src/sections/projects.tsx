@@ -128,6 +128,7 @@ function Projects() {
     }, [isProjectOpened]);
 
     const slider = useRef<HTMLDivElement | null>(null);
+
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex(index + 1)
