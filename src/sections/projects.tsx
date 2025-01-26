@@ -7,6 +7,7 @@ import {RiNextjsLine} from "react-icons/ri";
 import {SiExpress, SiMysql, SiPrisma} from "react-icons/si";
 import {LuFileJson2} from "react-icons/lu";
 import {DiMongodb} from "react-icons/di";
+import {useRouter} from 'next/navigation'
 
 export interface Project {
     name: string;
@@ -14,17 +15,18 @@ export interface Project {
     video: string;
     created_date: string;
     tools: string[];
+    link: string;
 }
 
 function Projects() {
+    const router = useRouter()
+
     const [isProjectOpened, setIsProjectOpened] = useState(-1);
     const [backClick, setBackClick] = useState(false);
     const [prjClick, setPrjClick] = useState(false);
-    const [imgSlide, setImgSlide] = useState(0);
     const [index, setIndex] = useState<number>(0);
     const [lengths, setLengths] = useState<Array<number>>([]);
     const [prjLst, setPrjLst] = useState(0);
-    const icons = [<FaReact/>];
 
     const [imgWidth, setImgWidth] = useState("0");
 
@@ -33,8 +35,8 @@ function Projects() {
     }, []);
 
     function HandleResize() {
-        if (window.innerWidth/window.innerHeight < (4/3)) {
-            var wdt = 52.5*0.01 * window.innerWidth;
+        if (window.innerWidth / window.innerHeight < (4 / 3)) {
+            var wdt = 52.5 * 0.01 * window.innerWidth;
             setImgWidth(wdt > 209 ? '52.5vw' : '209px');
         } else {
             setImgWidth('19vw');
@@ -131,9 +133,6 @@ function Projects() {
         }
     }, [backClick, prjClick]);
 
-    useEffect(() => {
-        setImgSlide(0);
-    }, [isProjectOpened]);
 
     const slider = useRef<HTMLDivElement | null>(null);
 
@@ -144,7 +143,7 @@ function Projects() {
             for (let i = 0; i < projectsData.length; i++) {
                 if (slider.current !== null) {
                     const x = (v) % (lengths[i]);
-                    const vl = window.innerWidth/window.innerHeight < (4/3) ? `min(${-52.25*x}vw, ${-209*x}px)` : `${-19 * x}vw`;
+                    const vl = window.innerWidth / window.innerHeight < (4 / 3) ? `min(${-52.25 * x}vw, ${-209 * x}px)` : `${-19 * x}vw`;
                     const elements = slider.current.querySelectorAll(".draewrimgr");
                     if (elements && elements[i]) {
                         (elements[i] as HTMLDivElement).style.transform = `translateX(${vl})`;
@@ -158,8 +157,9 @@ function Projects() {
     }, [index, slider]);
 
     function ImageWrapperWidth(length: number) {
-        return `${parseInt(imgWidth.slice(0,-2))*length}${imgWidth.slice(-2)}`
+        return `${parseInt(imgWidth.slice(0, -2)) * length}${imgWidth.slice(-2)}`
     }
+
     return (
         <div className="section">
             <h1>Projects</h1>
@@ -186,95 +186,83 @@ function Projects() {
                             />
                         </>
                     ) : null
-                 : null}
-                {projectsData
-                    .slice(
-                        typeof window !== "undefined"
-                            ? window.innerWidth > 600
-                                ? prjLst * 4
-                                : 0
-                            : 0,
-                        typeof window !== "undefined"
-                            ? window.innerWidth > 600
-                                ? Math.min(prjLst * 4 + 4, projectsData.length)
-                                : projectsData.length
-                            : 4
-                    )
-                    .map((x, i) => {
-                        return (
-                            <div
-                                key={i}
-                                onClick={() => {
-                                    setIsProjectOpened(i);
-                                }}
-                                className="prjct"
-                            >
-                                <div className="tpr">
-                                    <div className="img_prv_cntr">
-                                        <div style={{width: ImageWrapperWidth(x.images.length)}} className={"draewrimgr"}>
-                                            {x.images.map((image,idx) => <img
-                                                key={idx}
-                                                alt={""}
-                                                src={image}
-                                                style={{background: "grey"}}
-                                            ></img>)}
-                                        </div>
+                    : null}
+                {projectsData.map((x, i) => {
+                    return (
+                        <div
+                            key={i}
+                            onClick={() => {
+                                router.push(x.link);
+                            }}
+                            className="prjct"
+                        >
+                            <div className="tpr">
+                                <div className="img_prv_cntr">
+                                    <div style={{width: ImageWrapperWidth(x.images.length)}}
+                                         className={"draewrimgr"}>
+                                        {x.images.map((image, idx) => <img
+                                            key={idx}
+                                            alt={""}
+                                            src={image}
+                                            style={{background: "grey"}}
+                                        ></img>)}
                                     </div>
-                                    <div className="tools_container">
-                                        {x.tools.map((v, j) => {
-                                            return (
-                                                <div
-                                                    key={j}
-                                                    title={v}
-                                                    style={{
-                                                        backgroundColor:
+                                </div>
+                                <div className="tools_container">
+                                    {x.tools.map((v, j) => {
+                                        return (
+                                            <div
+                                                key={j}
+                                                title={v}
+                                                style={{
+                                                    backgroundColor:
+                                                    clr_icn_Scale(v)
+                                                        .color,
+                                                    color: getTextColorBasedOnBackground(
                                                         clr_icn_Scale(v)
-                                                            .color,
-                                                        color: getTextColorBasedOnBackground(
-                                                            clr_icn_Scale(v)
-                                                                .color
-                                                        ),
-                                                    }}
-                                                    className="toolicon"
-                                                >
-                                                    {clr_icn_Scale(v).icon}
-                                                </div>
-                                            );
-                                        })}
-                                    </div>
-                                    <p className="txtprj">
-                                        <span>{x.name}</span>
-                                    </p>
-                                    <p className="datep">{x.created_date}</p>
-                                    <span
-                                        style={{
-                                            color: "transparent",
-                                            fontSize: "1.5vw",
-                                            wordWrap: "break-word",
-                                        }}
-                                    >
+                                                            .color
+                                                    ),
+                                                }}
+                                                className="toolicon"
+                                            >
+                                                {clr_icn_Scale(v).icon}
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                                <p className="txtprj">
+                                    <span>{x.name}</span>
+                                </p>
+                                <p className="datep">{x.created_date}</p>
+                                <span
+                                    style={{
+                                        color: "transparent",
+                                        fontSize: "1.5vw",
+                                        wordWrap: "break-word",
+                                    }}
+                                >
                                         {"T2G: A Website That Converts Tables Into Graphs".slice(
                                             x.name.length
                                         )}
                                     </span>
-                                </div>
-                                <div className="lfr">
-                                    <p
-                                        onClick={() => {
-                                            typeof window !== "undefined"
-                                                ? (window.location.href =
-                                                    projectsData[
-                                                        isProjectOpened
-                                                        ].video)
-                                                : null;
-                                        }}
-                                    >
-                                        Learn More ↗
-                                    </p>
-                                </div>
                             </div>
-                        );
-                    })}
+                            <div className="lfr">
+                                <p
+                                    onClick={() => {
+                                        typeof window !== "undefined"
+                                            ? (window.location.href =
+                                                projectsData[
+                                                    isProjectOpened
+                                                    ].video)
+                                            : null;
+                                    }}
+                                >
+                                    Learn More ↗
+                                </p>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
             <p className="msgtoclnt">
                 "These projects are on GitHub, but they are private."

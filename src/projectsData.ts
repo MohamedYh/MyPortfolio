@@ -16,6 +16,7 @@ export const projectsData: Project[] = [
         video: "https://youtu.be/QYUnMUPKjUs?si=H1eA49op851u3eP4",
         created_date: "01/2024",
         tools: ["React", "NextJs", "ExpressJs", "MongoDb"],
+        link: "#"
     },
     {
         name: "Restaurant Website Template",
@@ -33,6 +34,7 @@ export const projectsData: Project[] = [
         video: "https://youtu.be/kSM2rTLaneg",
         created_date: "11/2024",
         tools: ["React", "NextJs"],
+        link: "https://mohamedyh.github.io/Restaurant/"
     },
     {
         name: "T2G: A Website That Converts Tables Into Graphs",
@@ -48,6 +50,7 @@ export const projectsData: Project[] = [
         video: "https://youtu.be/2Vr-JCSivuE?si=KMsiY8bu4NigOvT9",
         created_date: "09/2024",
         tools: ["React", "NextJs", "ExpressJs", "MySQL", "Prisma"],
+        link: "#"
     },
     {
         name: "Taskneto: Tasks And Notes Website",
@@ -63,6 +66,7 @@ export const projectsData: Project[] = [
         video: "https://youtu.be/RSgQM9tTNmc?si=oTe1AfXaxBD27ET6",
         created_date: "06/2024",
         tools: ["React", "NextJs", "ExpressJs", "MongoDb"],
+        link: "#"
     },
     {
         name: "E-Commerce Website ",
@@ -76,5 +80,6 @@ export const projectsData: Project[] = [
         video: "https://youtu.be/M2cR9wLKJ5U?si=AZeJBF19N2ztwTsx",
         created_date: "04/2024",
         tools: ["React", "NextJs", "External API"],
+        link: "#"
     },
 ];
