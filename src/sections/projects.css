@@ -355,7 +355,7 @@
     }
 
     .img_prv_cntr {
-        height: fit-content;
+        height: auto;
     }
 
     .prjcts {
