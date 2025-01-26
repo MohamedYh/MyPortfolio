@@ -164,29 +164,6 @@ function Projects() {
         <div className="section">
             <h1>Projects</h1>
             <div ref={slider} className="prjcts">
-                {typeof window !== "undefined" ?
-                    projectsData.length > 4 && window.innerWidth > 600 ? (
-                        <>
-                            <FaArrowLeft
-                                onClick={() => {
-                                    setPrjLst(Math.max(prjLst - 1, 0));
-                                }}
-                                id="lft"
-                            />
-                            <FaArrowRight
-                                onClick={() => {
-                                    setPrjLst(
-                                        Math.min(
-                                            prjLst + 1,
-                                            Math.ceil(projectsData.length / 4) - 1
-                                        )
-                                    );
-                                }}
-                                id="rght"
-                            />
-                        </>
-                    ) : null
-                    : null}
                 {projectsData.map((x, i) => {
                     return (
                         <div
