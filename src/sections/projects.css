@@ -355,7 +355,7 @@
     }
 
     .img_prv_cntr {
-        height: auto;
+        height: calc(30.9375vw + min(4vh, 20px));
     }
 
     .prjcts {
