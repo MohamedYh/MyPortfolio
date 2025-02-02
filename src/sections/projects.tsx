@@ -169,7 +169,7 @@ function Projects() {
                         <div
                             key={i}
                             onClick={() => {
-                                router.push(x.link);
+                                window && window.open(x.link,'_blank')?.focus();
                             }}
                             className="prjct"
                         >
